@@ -1,0 +1,23 @@
+{
+  "name": "my-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "node scripts/build-posts.js && vite build && npm run sitemap",
+    "preview": "vite preview",
+    "sitemap": "node scripts/generate-sitemap.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "marked": "^18.0.3",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.2.4",
+    "vite": "^8.0.10"
+  }
+}
