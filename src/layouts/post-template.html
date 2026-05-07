@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客文章 - 我的独立站</title>
+  <meta name="description" content="阅读最新的博客文章">
+  <link rel="canonical" href="https://yoursite.com/blog/">
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- JSON-LD 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "博客文章标题",
+    "datePublished": "2026-05-07",
+    "author": {
+      "@type": "Person",
+      "name": "你的品牌"
+    }
+  }
+  </script>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+
+<!--header-->
+
+<main class="min-h-screen pt-24 pb-12">
+  <article class="max-w-3xl mx-auto px-6">
+    <div class="mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">文章标题</h1>
+      <div class="text-gray-400 text-sm">
+        <span>发布日期：<time datetime="2026-05-07">2026年5月7日</time></span>
+        <span class="mx-3">|</span>
+        <span>作者：你的品牌</span>
+      </div>
+    </div>
+    
+    <div class="prose prose-invert max-w-none">
+      {{content}}
+    </div>
+  </article>
+</main>
+
+<!--footer-->
+
+<script src="/main.js"></script>
+</body>
+</html>

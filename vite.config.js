@@ -33,7 +33,7 @@ function layoutInjectPlugin() {
       console.log('开始处理 HTML，原始长度:', html.length)
 
       // 检查占位符是否存在
-      const hasHeaderPlaceholder = html.includes('<!--footer-->')
+      const hasHeaderPlaceholder = html.includes('<!--header-->')
       const hasFooterPlaceholder = html.includes('<!--footer-->')
       console.log('占位符存在状态：header=', hasHeaderPlaceholder, 'footer=', hasFooterPlaceholder)
 
