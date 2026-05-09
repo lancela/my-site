@@ -162,8 +162,20 @@ export default defineConfig({
    * 好处：
    * - 开发时不需要在 URL 中添加 /src/pages 前缀
    * - 简化相对路径的管理
+   *
+   * 注意：脚本与样式实际在 src/js、src/styles（在 pages 之外）。
+   * 浏览器会把页面里的 ../js/… 解析成 /js/…，需在 resolve.alias 里映射到真实目录。
    */
   root: 'src/pages',
+
+  resolve: {
+    alias: [
+      {
+        find: /^\/js\/(.+)$/,
+        replacement: resolve(__dirname, 'src/js/$1'),
+      },
+    ],
+  },
   
   /**
    * publicDir: 静态资源目录
@@ -176,8 +188,10 @@ export default defineConfig({
    * - sitemap.xml (SEO)
    * - favicon.ico
    * - 不需要构建的静态资源
+   *
+   * 相对路径以「含 vite.config 的项目根」为准，不能用 ../../public。
    */
-  publicDir: '../../public',
+  publicDir: resolve(__dirname, 'public'),
   
   /**
    * server: 开发服务器配置
@@ -193,8 +207,8 @@ export default defineConfig({
    * Vite 在执行 npm run build 时会使用这些配置
    */
   build: {
-    outDir: '../../dist',           // 输出目录相对于 root (src/pages)
-    emptyOutDir: true,              // 构建前清空输出目录
+    outDir: resolve(__dirname, 'dist'),
+    emptyOutDir: true,
     
     /**
      * rollupOptions: Rollup 打包配置
