@@ -12,46 +12,14 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "LUMINA",
-    "url": "https://yoursite.com/",
-    "description": "简约设计、点亮美好生活。"
+    "name": "LUMINA", // todo 
+    "url": "https://yoursite.com/", // todo 改成你的网站首页完整 URL，例如 "https://www.example.com/"（结尾尽量带 /）
+    "description": "简约设计、点亮美好生活。" // todo 改成符合你网站内容的简短描述，会可能出现在搜索结果摘要中，建议 30~60 字
   }
   </script>
 </head>
 <body class="bg-slate-50 text-slate-950">
-  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-      <a href="/" class="flex items-center gap-3 text-slate-950">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white">L</span>
-        <span class="text-sm font-semibold tracking-[0.28em] uppercase">LUMINA</span>
-      </a>
-      <nav class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
-        <a href="#home" class="hover:text-slate-950">首页</a>
-        <a href="#products" class="hover:text-slate-950">产品</a>
-        <a href="#categories" class="hover:text-slate-950">分类</a>
-        <a href="#solutions" class="hover:text-slate-950">解决方案</a>
-        <a href="#about" class="hover:text-slate-950">关于我们</a>
-        <a href="#contact" class="hover:text-slate-950">联系我们</a>
-      </nav>
-      <div class="hidden items-center gap-3 md:flex">
-        <button class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 transition hover:bg-slate-50">中文</button>
-        <a href="#contact" class="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800">获取报价</a>
-      </div>
-      <button id="menu-toggle" class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50" aria-label="打开菜单">
-        <svg viewBox="0 0 24 24" class="h-5 w-5"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden">
-      <div class="flex flex-col gap-2 text-sm text-slate-700">
-        <a href="#home" class="rounded-2xl px-4 py-3 hover:bg-slate-50">首页</a>
-        <a href="#products" class="rounded-2xl px-4 py-3 hover:bg-slate-50">产品</a>
-        <a href="#categories" class="rounded-2xl px-4 py-3 hover:bg-slate-50">分类</a>
-        <a href="#solutions" class="rounded-2xl px-4 py-3 hover:bg-slate-50">解决方案</a>
-        <a href="#about" class="rounded-2xl px-4 py-3 hover:bg-slate-50">关于我们</a>
-        <a href="#contact" class="rounded-2xl bg-slate-950 px-4 py-3 text-white hover:bg-slate-800">获取报价</a>
-      </div>
-    </div>
-  </header>
+  <!--header-->
 
   <main>
     <section id="home" class="bg-white">
@@ -243,48 +211,8 @@
       </div>
     </section>
 
-    <footer class="bg-slate-950 text-slate-200">
-      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-4">
-        <div>
-          <p class="text-lg font-semibold text-white">LUMINA</p>
-          <p class="mt-4 text-sm leading-7 text-slate-400">致力于现代家居照明与高端生活用品，为你的空间带来温暖与高级感。</p>
-        </div>
-        <div>
-          <p class="text-sm uppercase tracking-[0.3em] text-slate-500">产品</p>
-          <ul class="mt-5 space-y-3 text-sm text-slate-400">
-            <li><a href="#" class="hover:text-white">家居生活</a></li>
-            <li><a href="#" class="hover:text-white">户外系列</a></li>
-            <li><a href="#" class="hover:text-white">照明系列</a></li>
-            <li><a href="#" class="hover:text-white">配件系列</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="text-sm uppercase tracking-[0.3em] text-slate-500">关于我们</p>
-          <ul class="mt-5 space-y-3 text-sm text-slate-400">
-            <li><a href="#" class="hover:text-white">公司介绍</a></li>
-            <li><a href="#" class="hover:text-white">新闻中心</a></li>
-            <li><a href="#" class="hover:text-white">联系我们</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="text-sm uppercase tracking-[0.3em] text-slate-500">订阅信息</p>
-          <p class="mt-5 text-sm text-slate-400">获取新品发布与专属优惠。</p>
-          <form class="mt-5 flex flex-col gap-3 sm:flex-row">
-            <input type="email" placeholder="输入邮箱" class="min-w-0 flex-1 rounded-full border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm text-white outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20" />
-            <button type="submit" class="rounded-full bg-orange-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-orange-400">订阅</button>
-          </form>
-        </div>
-      </div>
-      <div class="border-t border-slate-800 px-4 py-6 text-center text-sm text-slate-500 sm:px-6">© 2026 LUMINA. 版权所有。</div>
-    </footer>
+    <!--footer-->
   </main>
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle?.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
 </body>
 </html>
