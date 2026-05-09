@@ -1,198 +1,220 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>你的品牌 - 提升运动表现的科学装备</title>
-  <meta name="description" content="采用航空级碳纤维科技，为运动员提供能量回馈、减震保护和爆发力提升。经过600+职业和大学项目验证。">
-  <link rel="canonical" href="https://yoursite.com/">
+  <title>LUMINA | 简约设计，点亮美好生活</title>
+  <meta name="description" content="LUMINA 专注高端家居照明与生活配件，提供简洁优雅的产品与专业方案。">
   <style>
     @import '../styles/main.css';
   </style>
-  
-  <!-- JSON-LD 结构化数据（首页为 WebSite 类型） -->
+  <script type="module" src="/js/main.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "你的品牌名称",
-    "url": "https://yoursite.com/",
-    "description": "采用航空级碳纤维科技，为运动员提供能量回馈、减震保护和爆发力提升。",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://yoursite.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "name": "LUMINA", // todo 
+    "url": "https://yoursite.com/", // todo 改成你的网站首页完整 URL，例如 "https://www.example.com/"（结尾尽量带 /）
+    "description": "简约设计、点亮美好生活。" // todo 改成符合你网站内容的简短描述，会可能出现在搜索结果摘要中，建议 30~60 字
   }
   </script>
 </head>
-<body class="bg-black text-white font-sans antialiased">
+<body class="bg-slate-50 text-slate-950">
+  <!--header-->
 
-<!--header-->
-
-<main>
-  <!-- Hero 区（第1屏） -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- 背景图（全屏产品/场景图） -->
-    <div class="absolute inset-0 z-0">
-      <!-- 占位背景图片，请替换为实际产品图 -->
-      <img src="/images/hero-bg.jpg" alt="产品展示背景" class="w-full h-full object-cover opacity-40">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
-    </div>
-
-    <!-- Hero 文字内容 -->
-    <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
-      <!-- 品牌徽章 -->
-      <div class="inline-block mb-6 px-4 py-1.5 border border-white/20 rounded-full backdrop-blur-sm text-white/80 text-sm tracking-wide">
-        ⚡ 航空级碳纤维科技
-      </div>
-      <!-- 主标题 -->
-      <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-        重新定义<br>你的运动潜能
-      </h1>
-      <!-- 副标题 -->
-      <p class="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto">
-        采用航天级碳纤维底板，提供真正的能量回馈与冲击保护。已被600+职业和大学项目验证。
-      </p>
-      <!-- 双CTA按钮 -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/products" class="inline-block bg-orange-500 hover:bg-orange-600 transition-colors text-white font-semibold px-8 py-4 rounded-full text-lg shadow-lg">
-          立即购买 →
-        </a>
-        <a href="/how-it-works" class="inline-block border border-white/30 hover:border-white/60 transition-colors text-white px-8 py-4 rounded-full text-lg backdrop-blur-sm">
-          了解科技原理
-        </a>
-      </div>
-      <!-- 信任标识 -->
-      <div class="mt-12 flex flex-wrap justify-center gap-6 text-sm text-white/60">
-        <span class="flex items-center gap-2">✓ 600+ 职业/大学项目信赖</span>
-        <span class="flex items-center gap-2">✓ 独立第三方科学测试</span>
-        <span class="flex items-center gap-2">✓ 美国雪橇队官方供应商</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 产品核心优势区（第2屏）品牌信服力 -->
-  <section class="py-24 px-6 bg-gradient-to-b from-black to-gray-900">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">为什么选择我们？</h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-16">我们的产品融合了生物力学科学和航天工程学，为运动员在每一个运动中提供优势。</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-        <!-- 优势点 1 -->
-        <div class="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all">
-          <div class="w-14 h-14 bg-orange-500/20 rounded-full flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+  <main>
+    <section id="home" class="bg-white">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-20 lg:py-20">
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-600">简约设计，点亮美好生活</div>
+          <div class="space-y-5">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">我们专注高品质产品的设计与制造，简而美，优雅与功能兼备。</h1>
+            <p class="max-w-2xl text-lg leading-8 text-slate-600">为现代生活提供高颜值、易用且兼具实际价值的家居照明与生活配件，让每一处空间都更温暖、更有质感。</p>
           </div>
-          <h3 class="text-xl font-bold mb-3">能量回馈技术</h3>
-          <p class="text-gray-400">全长碳纤维底板能储存并返还运动能量，类似蹦床效应，助你跳得更高、跑得更快。</p>
-        </div>
-        <!-- 优势点 2 -->
-        <div class="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all">
-          <div class="w-14 h-14 bg-orange-500/20 rounded-full flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a href="#products" class="inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">探索产品</a>
+            <a href="#video" class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-50">
+              <span class="mr-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-white">▶</span>
+              观看视频
+            </a>
           </div>
-          <h3 class="text-xl font-bold mb-3">冲击保护 & 减震</h3>
-          <p class="text-gray-400">吸收有害冲击力，减少胫骨、膝盖和下背部的压力，帮助你保持健康无伤。</p>
-        </div>
-        <!-- 优势点 3 -->
-        <div class="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all">
-          <div class="w-14 h-14 bg-orange-500/20 rounded-full flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <div class="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+            <span>全球 2,000+ 品牌信赖之选</span>
           </div>
-          <h3 class="text-xl font-bold mb-3">轻若无物</h3>
-          <p class="text-gray-400">单片重量小于30克，厚度不到1mm，却能提供强大的支撑和动态反馈。</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 比赛表现数据区（第3屏）建立权威感 -->
-  <section class="py-24 px-6 bg-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- 左边数据图片区（换上你产品的展示数据图） -->
-        <div class="rounded-2xl overflow-hidden bg-gray-900 p-6 text-center">
-          <img src="/images/performance-data.jpg" alt="性能测试数据对比图表" class="rounded-xl w-full opacity-90">
-          <p class="text-sm text-gray-500 mt-4">*基于南康涅狄格州立大学人类表现实验室的独立测试结果</p>
-        </div>
-        <!-- 右边文字描述区 -->
-        <div>
-          <h2 class="text-3xl md:text-5xl font-bold mb-6">科学证明的<br>性能优势</h2>
-          <div class="space-y-4 text-gray-300">
-            <p>✅ <strong>+1.6英寸</strong> 平均垂直弹跳增长</p>
-            <p>✅ <strong>0.12秒</strong> 40码冲刺时间缩短</p>
-            <p>✅ <strong>600+</strong> 职业及大学运动队信赖</p>
-            <p>✅ <strong>3项</strong> 独立第三方研究验证</p>
+        <div class="relative mx-auto w-full max-w-xl">
+          <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100 p-5 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
+            <div class="absolute -left-10 top-10 h-44 w-44 rounded-full bg-orange-100 blur-3xl"></div>
+            <div class="absolute -right-10 bottom-10 h-32 w-32 rounded-full bg-slate-900/10 blur-3xl"></div>
+            <div class="relative z-10 aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-slate-200 via-slate-100 to-white">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(15,23,42,0.08),_transparent_35%)]"></div>
+              <div class="absolute inset-x-5 top-8 h-[300px] rounded-[1.75rem] bg-[url('https://images.unsplash.com/photo-1512446814330-41473efca69f?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center"></div>
+            </div>
           </div>
-          <a href="/research" class="inline-block mt-8 text-orange-500 hover:text-orange-400 font-medium">查看完整研究报告 →</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 品牌/媒体展示区（第4屏）社会认同 -->
-  <section class="py-20 px-6 bg-gray-950">
-    <div class="max-w-6xl mx-auto text-center">
-      <p class="text-gray-400 uppercase tracking-wider text-sm mb-8">合作伙伴与权威奖项</p>
-      <div class="flex flex-wrap justify-center gap-8 items-center">
-        <!-- 这里替换为实际的媒体logo或合作伙伴logo -->
-        <div class="bg-white/10 px-6 py-3 rounded-lg text-gray-300 font-medium">USA Rugby</div>
-        <div class="bg-white/10 px-6 py-3 rounded-lg text-gray-300 font-medium">UFA</div>
-        <div class="bg-white/10 px-6 py-3 rounded-lg text-gray-300 font-medium">美国雪橇队</div>
-        <div class="bg-white/10 px-6 py-3 rounded-lg text-gray-300 font-medium">AskMen 2025最佳鞋垫奖</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 产品具体功能区分（第5屏）细化卖点 -->
-  <section class="py-24 px-6 bg-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold">专为运动员打造</h2>
-        <p class="text-gray-400 text-lg mt-4">无论你是专业竞技还是健身爱好者，我们为你设计</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10">
-          <h3 class="text-2xl font-bold mb-3">🏈 高冲击运动</h3>
-          <p class="text-gray-400">篮球/足球/橄榄球：极致爆发力 + 落地缓冲保护</p>
-        </div>
-        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10">
-          <h3 class="text-2xl font-bold mb-3">🏃 跑步/耐力运动</h3>
-          <p class="text-gray-400">提升步频效率，减少疲劳，延缓乳酸堆积</p>
-        </div>
-        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10">
-          <h3 class="text-2xl font-bold mb-3">🚴 通勤/站立工作</h3>
-          <p class="text-gray-400">高品质缓震 + 足弓支撑，缓解长时间站立疲劳</p>
-        </div>
-        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10">
-          <h3 class="text-2xl font-bold mb-3">🦵 伤病恢复</h3>
-          <p class="text-gray-400">减少肌腱 & 关节压力，辅助康复训练</p>
+    <section class="bg-slate-50 border-y border-slate-200 py-8">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-8 px-4 text-sm text-slate-500 sm:px-6">
+        <span class="text-slate-400">全球 2,000+ 品牌信赖之选</span>
+        <div class="flex flex-wrap items-center gap-6">
+          <span class="text-slate-700 font-semibold">Decathlon</span>
+          <span class="text-slate-700 font-semibold">Walmart</span>
+          <span class="text-slate-700 font-semibold">Target</span>
+          <span class="text-slate-700 font-semibold">Costco</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 购买引导 + CTA区（第6屏） -->
-  <section class="py-32 px-6 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-orange-900/20 to-black/0 pointer-events-none"></div>
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <h2 class="text-4xl md:text-6xl font-bold mb-6">准备好释放你的运动潜能了吗？</h2>
-      <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">加入全球数万名提升表现的运动员，获得改变游戏规则的运动装备。</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/shop" class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl">
-          立即选购 →
-        </a>
-        <a href="/ambassador" class="border border-white/30 hover:border-white/60 text-white px-10 py-4 rounded-full font-medium transition-all">
-          成为品牌大使
-        </a>
+    <section id="categories" class="bg-slate-50 py-14">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-500">产品分类</p>
+            <h2 class="mt-4 text-3xl font-bold text-slate-950 sm:text-4xl">探索精选系列</h2>
+          </div>
+          <a href="#" class="text-sm font-semibold text-slate-950 transition hover:text-slate-700">查看全部分类 →</a>
+        </div>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <div class="mb-5 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">家居生活</h3>
+            <p class="mt-2 text-sm text-slate-500">48 款产品</p>
+          </article>
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <div class="mb-5 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">户外系列</h3>
+            <p class="mt-2 text-sm text-slate-500">32 款产品</p>
+          </article>
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <div class="mb-5 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">照明系列</h3>
+            <p class="mt-2 text-sm text-slate-500">58 款产品</p>
+          </article>
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <div class="mb-5 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">配件系列</h3>
+            <p class="mt-2 text-sm text-slate-500">26 款产品</p>
+          </article>
+        </div>
       </div>
-      <p class="text-sm text-gray-500 mt-6">✓ 30天无忧退换 ✓ 免费快递 ✓ 美国设计制造</p>
-    </div>
-  </section>
-</main>
+    </section>
 
-<!--footer-->
+    <section id="products" class="bg-slate-50 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-500">精选产品</p>
+            <h2 class="mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">优选新品</h2>
+          </div>
+          <a href="#" class="text-sm font-semibold text-slate-950 transition hover:text-slate-700">查看更多 →</a>
+        </div>
 
+        <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <span class="inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white">新品</span>
+            <div class="mt-5 mb-4 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">便携式灯</h3>
+            <p class="mt-3 text-sm text-slate-500">轻巧圆润，兼具颜值与实用。</p>
+            <a href="#" class="mt-5 inline-flex text-sm font-semibold text-slate-950 transition hover:text-slate-700">了解更多 →</a>
+          </article>
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <span class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-[0.24em] text-slate-600">热卖</span>
+            <div class="mt-5 mb-4 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">智能音箱</h3>
+            <p class="mt-3 text-sm text-slate-500">高保真音质，智能语音体验。</p>
+            <a href="#" class="mt-5 inline-flex text-sm font-semibold text-slate-950 transition hover:text-slate-700">了解更多 →</a>
+          </article>
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <span class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-[0.24em] text-slate-600">新品</span>
+            <div class="mt-5 mb-4 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">陶瓷花瓶</h3>
+            <p class="mt-3 text-sm text-slate-500">雅致造型，与生活空间自然融合。</p>
+            <a href="#" class="mt-5 inline-flex text-sm font-semibold text-slate-950 transition hover:text-slate-700">了解更多 →</a>
+          </article>
+          <article class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <span class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-[0.24em] text-slate-600">明星</span>
+            <div class="mt-5 mb-4 h-48 rounded-[1.5rem] bg-slate-100"></div>
+            <h3 class="text-lg font-semibold text-slate-950">台灯</h3>
+            <p class="mt-3 text-sm text-slate-500">护眼光源，适合阅读与休闲场景。</p>
+            <a href="#" class="mt-5 inline-flex text-sm font-semibold text-slate-950 transition hover:text-slate-700">了解更多 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="bg-slate-50 py-14">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-500">客户评价</p>
+            <h2 class="mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">真实反馈，安心选择</h2>
+          </div>
+          <a href="#" class="text-sm font-semibold text-slate-950 transition hover:text-slate-700">查看更多评价 →</a>
+        </div>
+        <div class="mt-8 grid gap-5 md:grid-cols-3">
+          <article class="rounded-[1.8rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <p class="text-sm text-slate-500">“产品耐看又实用，设计简洁大方，非常符合我们的风格。”</p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="h-11 w-11 rounded-full bg-slate-200"></div>
+              <div>
+                <p class="font-semibold text-slate-950">John Smith</p>
+                <p class="text-sm text-slate-500">采购经理，Walmart</p>
+              </div>
+            </div>
+          </article>
+          <article class="rounded-[1.8rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <p class="text-sm text-slate-500">“交付迅速，质量很稳定，包装也很有档次。”</p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="h-11 w-11 rounded-full bg-slate-200"></div>
+              <div>
+                <p class="font-semibold text-slate-950">Sophie Dubois</p>
+                <p class="text-sm text-slate-500">采购总监，Maisons du Monde</p>
+              </div>
+            </div>
+          </article>
+          <article class="rounded-[1.8rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <p class="text-sm text-slate-500">“非常棒的视觉表现和手机端体验，浏览更顺手。”</p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="h-11 w-11 rounded-full bg-slate-200"></div>
+              <div>
+                <p class="font-semibold text-slate-950">Michael Brown</p>
+                <p class="text-sm text-slate-500">采购总监，Target</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid gap-5 md:grid-cols-4">
+          <div class="rounded-[1.8rem] border border-slate-200 bg-white p-6 text-center shadow-sm">
+            <p class="text-3xl font-semibold text-slate-950">高品质材料</p>
+            <p class="mt-3 text-sm text-slate-500">选用优质材料，细节更精致。</p>
+          </div>
+          <div class="rounded-[1.8rem] border border-slate-200 bg-white p-6 text-center shadow-sm">
+            <p class="text-3xl font-semibold text-slate-950">安全可靠</p>
+            <p class="mt-3 text-sm text-slate-500">稳定性能，使用更放心。</p>
+          </div>
+          <div class="rounded-[1.8rem] border border-slate-200 bg-white p-6 text-center shadow-sm">
+            <p class="text-3xl font-semibold text-slate-950">全程配送</p>
+            <p class="mt-3 text-sm text-slate-500">全国配送，快速到货。</p>
+          </div>
+          <div class="rounded-[1.8rem] border border-slate-200 bg-white p-6 text-center shadow-sm">
+            <p class="text-3xl font-semibold text-slate-950">专业支持</p>
+            <p class="mt-3 text-sm text-slate-500">7x24 专业客服支持。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--footer-->
+  </main>
+
+  <!--whatsapp-float-->
 </body>
 </html>

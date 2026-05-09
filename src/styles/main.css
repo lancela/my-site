@@ -1,27 +1,268 @@
+/**
+ * ========================================
+ * 项目全局样式表
+ * ========================================
+ * 
+ * 本文件是项目的 CSS 入口，包含：
+ * 1. Tailwind CSS 的导入和配置
+ * 2. 全局基础样式 (@layer base)
+ * 3. 自定义工具类 (@layer utilities)
+ * 4. 可复用组件 (@layer components)
+ * 
+ * CSS 处理流程：
+ * 1. PostCSS 读取此文件
+ * 2. Tailwind 插件处理 @import "tailwindcss" 指令
+ * 3. 生成所有 Tailwind 工具类 CSS
+ * 4. Autoprefixer 添加浏览器前缀
+ * 5. 最终 CSS 被内联到 HTML 文件中
+ * 
+ * @layer 指令说明：
+ * - base: 重置浏览器默认样式，定义基础元素样式
+ * - components: 可复用的 CSS 组件类
+ * - utilities: 工具类，优先级最高
+ */
+
+/**
+ * ========================================
+ * 导入 Tailwind CSS
+ * ========================================
+ * 
+ * 这一条指令告诉 PostCSS：
+ * 1. 注入 Tailwind 的 preflight 样式（浏览器重置）
+ * 2. 注入所有已配置的 Tailwind 工具类
+ * 3. 注入 @layer 指令的样式
+ * 
+ * 等价于同时导入三个 Tailwind 预设层：
+ * @import "tailwindcss/base";
+ * @import "tailwindcss/components";
+ * @import "tailwindcss/utilities";
+ */
 @import "tailwindcss";
 
-/* 自定义全局样式 */
+/**
+ * ========================================
+ * 全局 HTML 样式
+ * ========================================
+ * 
+ * 使用 Tailwind 工具类或原生 CSS 定义全局样式
+ */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;  /* 页面内导航时平滑滚动，而不是跳跃 */
 }
 
+/**
+ * ========================================
+ * @layer base - 基础样式层
+ * ========================================
+ * 
+ * @layer 指令将样式应该到特定的层级
+ * base 层用于：
+ * 1. 重置浏览器默认样式
+ * 2. 定义基础元素的外观（body, h1-h6 等）
+ * 3. 设置项目范围内的默认属性
+ * 
+ * 优势：
+ * - 避免与 Tailwind 工具类冲突
+ * - 优先级管理清晰
+ * - 方便维护和覆盖
+ */
 @layer base {
+  /**
+   * 全局 body 样式
+   * 
+   * 这些样式应用于整个页面内容
+   */
   body {
-    @apply bg-black text-white font-sans antialiased;
+    background-color: #f8fafc;        /* 浅蓝灰色背景，适合浅色主题 */
+    color: #0f172a;                   /* 深蓝灰色文本，高对比度便于阅读 */
+    font-family: 'Inter', sans-serif;  /* 使用 Inter 字体，参见 tailwind.config.js */
+    
+    /* 字体平滑处理 - 在 macOS 上提升文本渲染质量 */
+    -webkit-font-smoothing: antialiased;   /* WebKit 浏览器 */
+    -moz-osx-font-smoothing: grayscale;    /* Firefox in macOS */
+  }
+
+  /**
+   * 通用盒模型重置
+   * 
+   * 应用于页面上的所有元素：
+   * 确保 padding 和 border 不会增加元素的总宽度/高度
+   * 这与现代 CSS 最佳实践一致
+   */
+  * {
+    box-sizing: border-box;
+  }
+
+  /**
+   * 文本选择样式
+   * 
+   * 当用户用鼠标选中页面文本时的样式
+   * 这可以改进用户体验和视觉一致性
+   */
+  ::selection {
+    background-color: rgba(251, 146, 60, 0.25);  /* 浅橙色选中背景 */
+    color: #ffffff;                              /* 白色选中文本 */
   }
 }
 
-/* 自定义组件 */
+/**
+ * ========================================
+ * @layer utilities - 工具类层
+ * ========================================
+ * 
+ * 工具类层优先级最高（在 HTML 中最后使用）
+ * 用于添加项目特定的工具类
+ * 
+ * 与 Tailwind 工具类的关系：
+ * - Tailwind 自己也定义了许多工具类（在 utilities 层）
+ * - 我们在这里添加的工具类会与 Tailwind 工具类合并
+ * - 都可以直接在 HTML 中使用
+ * 
+ * 使用场景：
+ * - 创建高级文本阴影效果
+ * - 定义常见的动画
+ * - 组合多个原子属性
+ */
+@layer utilities {
+  /**
+   * 自定义工具类：.text-shadow-soft
+   * 
+   * 为文本添加柔和的阴影效果
+   * 用于增强标题和其他文本元素的视觉层次感
+   * 
+   * 使用方法：
+   * <h1 class="text-shadow-soft">带有柔和阴影的标题</h1>
+   * 
+   * 阴影参数解释：
+   * - 0: 水平偏移 (0px)
+   * - 10px: 垂直偏移
+   * - 30px: 模糊半径（越大越模糊）
+   * - rgba(15, 23, 42, 0.12): 颜色和透明度
+   */
+  .text-shadow-soft {
+    text-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  }
+}
+
+/**
+ * ========================================
+ * @layer components - 组件类层
+ * ========================================
+ * 
+ * 组件类层用于定义可复用的、多属性的 CSS 类
+ * 这些类往往代表一个完整的 UI 模式或组件
+ * 
+ * 优势：
+ * 1. 减少 HTML 中的类名数量
+ * 2. 确保一致的样式
+ * 3. 方便集中管理和修改
+ * 4. 优先级在基础样式之上，工具类之下
+ * 
+ * 与 Tailwind 的关系：
+ * - 在不想重复使用相同类名组合时很有用
+ * - 对于复杂组件特别有帮助
+ * - 仍然比传统 BEM 命名法更简洁
+ * 
+ * 设计模式：
+ * - 面向组件而非页面
+ * - 每个类代表一个独立的 UI 单元
+ * - 易于在项目中复用
+ */
 @layer components {
+  /**
+   * 组件类：.section-title
+   * 
+   * 定义页面各个章节的标题样式
+   * 包含字体大小、粗细和字母间距设置
+   * 
+   * 使用场景：
+   * <h2 class="section-title">关于我们</h2>
+   * <h2 class="section-title">我们的服务</h2>
+   * 
+   * 这样做的好处：
+   * - 替代 <h2 class="text-2xl font-bold tracking-tight">
+   * - 代码更易读
+   * - 修改时只需改这一个地方
+   * - 确保所有章节标题外观一致
+   */
+  .section-title {
+    font-size: 2rem;                    /* 32px - 较大的标题尺寸 */
+    font-weight: 700;                   /* 粗体 - 增强视觉重量 */
+    letter-spacing: -0.03em;            /* 负的字母间距 - 使大字体更紧凑 */
+  }
+
+  /**
+   * 组件类：.card-surface
+   * 
+   * 定义卡片容器的基础样式
+   * 用于创建信息卡片、商品卡片等 UI 元素
+   * 
+   * 使用场景：
+   * <div class="card-surface">
+   *   <h3>卡片标题</h3>
+   *   <p>卡片内容</p>
+   * </div>
+   * 
+   * 组合使用：
+   * <div class="card-surface p-6 hover:shadow-lg">
+   *   通常与 Tailwind 工具类组合使用
+   *   p-6: 添加内边距
+   *   hover:shadow-lg: 鼠标悬停时添加阴影
+   * </div>
+   * 
+   * 样式构成：
+   */
+  .card-surface {
+    border-radius: 1.75rem;              /* 28px - 圆角，现代设计风格 */
+    border: 1px solid #e2e8f0;           /* 浅灰色边框，提供轮廓 */
+    background-color: #ffffff;           /* 白色背景 */
+  }
+
+  /**
+   * 组件类：.btn-primary
+   * 
+   * 定义主按钮的样式
+   * 这是项目中最常用的按钮样式
+   * 
+   * 使用场景：
+   * <button class="btn-primary">提交</button>
+   * <a href="/contact" class="btn-primary">联系我们</a>
+   * 
+   * 设计特点：
+   * - 深蓝黑色背景 - 高对比度
+   * - 白色文字 - 易于阅读
+   * - 圆形边框 - 友好的现代风格
+   * - 内联 Flexbox - 垂直水平居中
+   * - 平滑过渡效果 - 提升交互感
+   * 
+   * 样式详解：
+   */
   .btn-primary {
-    @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors shadow-lg;
+    display: inline-flex;               /* 内联伸缩容器 - 允许内容垂直水平居中 */
+    align-items: center;                /* 垂直居中所有子元素 */
+    justify-content: center;            /* 水平居中所有子元素 */
+    border-radius: 9999px;              /* 极大的圆角 - 完全圆形边框 */
+    background-color: #0f172a;          /* 深蓝黑色 - 品牌主色 */
+    color: #ffffff;                     /* 白色文本 */
+    padding: 0.75rem 1.75rem;           /* 上下 0.75rem, 左右 1.75rem - 按钮尺寸 */
+    font-weight: 600;                   /* 半粗体 - 强调按钮 */
+    
+    /* 交互效果：平滑的背景色过渡 */
+    transition: background-color 0.2s ease;  /* 200ms 内以缓和曲线改变背景色 */
   }
-  
-  .btn-secondary {
-    @apply border border-white/30 hover:border-white/60 text-white px-8 py-4 rounded-full text-lg backdrop-blur-sm transition-colors;
-  }
-  
-  .card {
-    @apply bg-white/5 rounded-2xl p-8 border border-white/10;
+
+  /**
+   * .btn-primary:hover - 悬停状态
+   * 
+   * 当用户鼠标悬停在按钮上时的视觉反馈
+   * 这对用户体验很重要：
+   * - 表明按钮是可交互的
+   * - 给予用户即时反馈
+   * - 提升交互满意度
+   * 
+   * 颜色略微加深 - 与基础颜色保持一致但更深
+   */
+  .btn-primary:hover {
+    background-color: #111827;          /* 比基础颜色稍深 - 视觉反馈 */
   }
 }
