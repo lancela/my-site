@@ -1,27 +1,60 @@
 @import "tailwindcss";
 
-/* 自定义全局样式 */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 @layer base {
   body {
-    @apply bg-black text-white font-sans antialiased;
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: rgba(251, 146, 60, 0.25);
+    color: #ffffff;
   }
 }
 
-/* 自定义组件 */
+@layer utilities {
+  .text-shadow-soft {
+    text-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  }
+}
+
 @layer components {
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .card-surface {
+    border-radius: 1.75rem;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+  }
+
   .btn-primary {
-    @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors shadow-lg;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 0.75rem 1.75rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
   }
-  
-  .btn-secondary {
-    @apply border border-white/30 hover:border-white/60 text-white px-8 py-4 rounded-full text-lg backdrop-blur-sm transition-colors;
-  }
-  
-  .card {
-    @apply bg-white/5 rounded-2xl p-8 border border-white/10;
+
+  .btn-primary:hover {
+    background-color: #111827;
   }
 }
