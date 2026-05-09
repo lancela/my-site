@@ -31,6 +31,7 @@ import fs from 'fs'
 // 这些文件会被注入到所有 HTML 页面中
 const headerPath = resolve(__dirname, 'src/layouts/header.html')
 const footerPath = resolve(__dirname, 'src/layouts/footer.html')
+const whatsappFloatPath = resolve(__dirname, 'src/layouts/whatsapp-float.html')
 
 // 使用 fs.readFileSync 同步读取文件内容
 // 注：这在构建时发生，不会影响开发服务器性能
@@ -41,6 +42,7 @@ const head = fs.readFileSync(resolve(__dirname, 'src/layouts/head.html'), 'utf-8
 // 初始化布局变量
 let headerHtml = ''
 let footerHtml = ''
+let whatsappFloatHtml = ''
 
 // ========================================
 // 异常处理 - 布局文件读取
@@ -49,7 +51,8 @@ let footerHtml = ''
 try {
   headerHtml = fs.readFileSync(headerPath, 'utf-8')
   footerHtml = fs.readFileSync(footerPath, 'utf-8')
-  console.log('✅ 成功读取布局文件，长度：header', headerHtml.length, 'footer', footerHtml.length)
+  whatsappFloatHtml = fs.readFileSync(whatsappFloatPath, 'utf-8')
+  console.log('✅ 成功读取布局文件，长度：header', headerHtml.length, 'footer', footerHtml.length, 'whatsapp-float', whatsappFloatHtml.length)
 } catch (err) {
   console.error('❌ 读取布局文件失败:', err.message)
 }
@@ -62,7 +65,7 @@ try {
  * 这是一个 Vite 插件，用于在 HTML 构建过程中注入页眉和页脚
  * 
  * 工作原理：
- * 1. 识别 HTML 中的占位符注释 (<!--header--> 和 <!--footer-->)
+ * 1. 识别 HTML 中的占位符注释 (<!--header-->、<!--footer-->、<!--whatsapp-float-->)
  * 2. 用实际的布局内容替换这些占位符
  * 3. 在开发和生产构建中都会执行
  * 
@@ -95,10 +98,11 @@ function layoutInjectPlugin() {
       // 占位符格式：HTML 注释，例如 <!--header--> 和 <!--footer-->
       const hasHeaderPlaceholder = html.includes('<!--header-->')
       const hasFooterPlaceholder = html.includes('<!--footer-->')
-      console.log('占位符存在状态：header=', hasHeaderPlaceholder, 'footer=', hasFooterPlaceholder)
+      const hasWhatsappFloatPlaceholder = html.includes('<!--whatsapp-float-->')
+      console.log('占位符存在状态：header=', hasHeaderPlaceholder, 'footer=', hasFooterPlaceholder, 'whatsapp-float=', hasWhatsappFloatPlaceholder)
 
       // 如果没有找到占位符，直接返回原始 HTML（早期退出优化）
-      if (!hasHeaderPlaceholder && !hasFooterPlaceholder) {
+      if (!hasHeaderPlaceholder && !hasFooterPlaceholder && !hasWhatsappFloatPlaceholder) {
         console.warn('未找到任何占位符，跳过替换')
         return html
       }
@@ -111,6 +115,7 @@ function layoutInjectPlugin() {
       let result = html
         .replace(/<!--header-->/g, headerHtml)   // 替换所有页眉占位符
         .replace(/<!--footer-->/g, footerHtml)   // 替换所有页脚占位符
+        .replace(/<!--whatsapp-float-->/g, whatsappFloatHtml) // WhatsApp 浮动按钮
 
       // ========================================
       // 验证替换是否成功
@@ -118,10 +123,11 @@ function layoutInjectPlugin() {
       // 检查替换后是否还有残留的占位符
       const stillHasHeader = result.includes('<!--header-->')
       const stillHasFooter = result.includes('<!--footer-->')
+      const stillHasWhatsappFloat = result.includes('<!--whatsapp-float-->')
 
-      if (stillHasHeader || stillHasFooter) {
+      if (stillHasHeader || stillHasFooter || stillHasWhatsappFloat) {
         // 如果仍有占位符，说明正则替换可能失败
-        console.error('替换后仍有占位符残留！header=', stillHasHeader, 'footer=', stillHasFooter)
+        console.error('替换后仍有占位符残留！header=', stillHasHeader, 'footer=', stillHasFooter, 'whatsapp-float=', stillHasWhatsappFloat)
         console.log('headerHtml 内容预览:', headerHtml.substring(0, 100))
         console.log('footerHtml 内容预览:', footerHtml.substring(0, 100))
 
@@ -129,9 +135,10 @@ function layoutInjectPlugin() {
         // 这种方法在某些特殊字符导致正则匹配失败时更可靠
         result = html.split('<!--header-->').join(headerHtml)
         result = result.split('<!--footer-->').join(footerHtml)
+        result = result.split('<!--whatsapp-float-->').join(whatsappFloatHtml)
 
         // 最终验证
-        if (result.includes('<!--header-->') || result.includes('<!--footer-->')) {
+        if (result.includes('<!--header-->') || result.includes('<!--footer-->') || result.includes('<!--whatsapp-float-->')) {
           console.error('强制替换仍然失败，请检查布局文件是否为空或包含非法字符')
         } else {
           console.log('强制替换成功')
