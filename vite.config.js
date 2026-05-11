@@ -253,7 +253,17 @@ export default defineConfig({
        * 这样可以确保 products.html、categories.html、solutions.html
        * contact.html 以及 blog 文章页面都被正确打包到 dist
        */
-      input: scanHtmlInputs('src/pages')
+      input: scanHtmlInputs('src/pages'),
+      output: {
+        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'js/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'styles/[name]-[hash][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
+        }
+      }
     }
   },
   
