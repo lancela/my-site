@@ -20,7 +20,8 @@ import {
   defineConfig      // Vite 的类型感知配置函数
 } from 'vite'
 import {
-  resolve          // Node.js 路径解析工具
+  resolve,          // Node.js 路径解析工具
+  relative
 } from 'path'
 import fs from 'fs'
 
@@ -157,6 +158,28 @@ function layoutInjectPlugin() {
  * Vite 主配置对象
  * ========================================
  */
+
+function scanHtmlInputs(pageDir) {
+  const inputs = {}
+  const baseDir = resolve(__dirname, pageDir)
+
+  function walk(dir) {
+    fs.readdirSync(dir, { withFileTypes: true }).forEach(entry => {
+      const fullPath = resolve(dir, entry.name)
+      if (entry.isDirectory()) {
+        walk(fullPath)
+      } else if (entry.isFile() && entry.name.endsWith('.html')) {
+        const relativePath = relative(baseDir, fullPath).replace(/\\/g, '/')
+        const key = relativePath.replace(/\.html$/, '')
+        inputs[key] = fullPath
+      }
+    })
+  }
+
+  walk(baseDir)
+  return inputs
+}
+
 export default defineConfig({
   /**
    * root: 项目根目录
@@ -225,19 +248,21 @@ export default defineConfig({
      */
     rollupOptions: {
       /**
-       * input: 指定入口文件
+       * input: 自动扫描 src/pages 目录下的所有 HTML 页面
        * 
-       * 手动指定入口点，而不是自动扫描
-       * 适用于多页面应用 (MPA - Multi-Page Application)
-       * 
-       * 每个键值对：
-       * - 键：输出文件名 (不含扩展名)
-       * - 值：输入文件的完整路径
+       * 这样可以确保 products.html、categories.html、solutions.html
+       * contact.html 以及 blog 文章页面都被正确打包到 dist
        */
-      input: {
-        main: resolve(__dirname, 'src/pages/index.html'),     // 主页
-        about: resolve(__dirname, 'src/pages/about.html'),   // 关于页面
-        // 注：博客文章页面由 build-posts.js 脚本自动生成
+      input: scanHtmlInputs('src/pages'),
+      output: {
+        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'js/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'styles/[name]-[hash][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
+        }
       }
     }
   },
