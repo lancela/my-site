@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} - LUMINA | 简约设计，点亮美好生活</title>
+  <meta name="description" content="{{excerpt}}">
+  <meta name="keywords" content="照明解决方案,生活方案,LUMINA服务,专业咨询">
+  <link rel="canonical" href="https://lumina.com/solutions/{{slug}}">
+  <script type="module" src="/js/main.js"></script>
+  <style>
+    @import '../styles/main.css';
+  </style>
+  <!-- JSON-LD 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{title}}",
+    "datePublished": "{{date}}",
+    "author": {
+      "@type": "Person",
+      "name": "LUMINA"
+    },
+    "description": "{{excerpt}}",
+    "category": "{{category}}"
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-950">
+  <!--header-->
+
+  <main class="min-h-screen py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <article>
+        <div class="mb-8">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">{{title}}</h1>
+          <div class="text-slate-600 text-sm">
+            <span>发布日期：<time datetime="{{date}}">{{formattedDate}}</time></span>
+            <span class="mx-3">|</span>
+            <span>分类：{{category}}</span>
+          </div>
+        </div>
+
+        <div class="prose prose-slate max-w-none">
+          {{content}}
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!--footer-->
+</body>
+</html>
