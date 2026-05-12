@@ -197,6 +197,7 @@ export default defineConfig({
    * 浏览器会把页面里的 ../js/… 解析成 /js/…，需在 resolve.alias 里映射到真实目录。
    */
   root: 'src/pages',
+  base: '/my-site/',
 
   resolve: {
     alias: [
