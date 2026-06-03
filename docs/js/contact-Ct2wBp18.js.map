@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "contact-Ct2wBp18.js",
+    "names": [],
+    "sources": [
+        "../../src/js/contact.js"
+    ],
+    "sourcesContent": [
+        "// 联系表单处理\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n  const contactForm = document.getElementById('contactForm');\r\n  \r\n  if (contactForm) {\r\n    contactForm.addEventListener('submit', async (e) => {\r\n      e.preventDefault();\r\n      \r\n      const formData = new FormData(contactForm);\r\n      const data = {\r\n        name: formData.get('name'),\r\n        email: formData.get('email'),\r\n        subject: formData.get('subject'),\r\n        message: formData.get('message'),\r\n      };\r\n      \r\n      // 基本验证\r\n      if (!data.name || !data.email || !data.message) {\r\n        alert('请填写所有必填字段');\r\n        return;\r\n      }\r\n      \r\n      // 邮箱验证\r\n      const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\r\n      if (!emailRegex.test(data.email)) {\r\n        alert('请输入有效的邮箱地址');\r\n        return;\r\n      }\r\n      \r\n      try {\r\n        // 这里可以替换为实际的 API 端点\r\n        // const response = await fetch('/api/contact', {\r\n        //   method: 'POST',\r\n        //   headers: { 'Content-Type': 'application/json' },\r\n        //   body: JSON.stringify(data),\r\n        // });\r\n        \r\n        console.log('表单数据：', data);\r\n        alert('感谢您的消息！我们会尽快回复。');\r\n        contactForm.reset();\r\n      } catch (error) {\r\n        console.error('表单提交失败:', error);\r\n        alert('提交失败，请稍后重试');\r\n      }\r\n    });\r\n  }\r\n});\r\n"
+    ],
+    "mappings": "AACA,SAAS,iBAAiB,uBAA0B,CAClD,IAAM,EAAc,SAAS,eAAe,cAAc,CAEtD,GACF,EAAY,iBAAiB,SAAU,KAAO,IAAM,CAClD,EAAE,gBAAgB,CAElB,IAAM,EAAW,IAAI,SAAS,EAAY,CACpC,EAAO,CACX,KAAM,EAAS,IAAI,OAAO,CAC1B,MAAO,EAAS,IAAI,QAAQ,CAC5B,QAAS,EAAS,IAAI,UAAU,CAChC,QAAS,EAAS,IAAI,UAAU,CACjC,CAGD,GAAI,CAAC,EAAK,MAAQ,CAAC,EAAK,OAAS,CAAC,EAAK,QAAS,CAC9C,MAAM,YAAY,CAClB,OAKF,GAAI,CAAC,6BAAW,KAAK,EAAK,MAAM,CAAE,CAChC,MAAM,aAAa,CACnB,OAGF,GAAI,CAQF,QAAQ,IAAI,QAAS,EAAK,CAC1B,MAAM,kBAAkB,CACxB,EAAY,OAAO,OACZ,EAAO,CACd,QAAQ,MAAM,UAAW,EAAM,CAC/B,MAAM,aAAa,GAErB,EAEJ"
+}

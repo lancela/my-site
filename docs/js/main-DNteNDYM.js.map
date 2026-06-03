@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "+vBAIA,SAAS,iBAAiB,uBAA0B,CAClD,IAAM,EAAgB,SAAS,cAAc,yBAAyB,CAChE,EAAa,SAAS,cAAc,qBAAqB,CAE3D,GAAiB,GACnB,EAAc,iBAAiB,YAAe,CAC5C,EAAW,UAAU,OAAO,SAAS,EACrC,CAIJ,SAAS,iBAAiB,eAAe,CAAC,QAAQ,GAAU,CAC1D,EAAO,iBAAiB,QAAS,SAAU,EAAG,CAC5C,EAAE,gBAAgB,CAClB,IAAM,EAAS,SAAS,cAAc,KAAK,aAAa,OAAO,CAAC,CAC5D,GACF,EAAO,eAAe,CAAE,SAAU,SAAU,CAAC,EAE/C,EACF,EACF,umCAGF,OAAO",
+    "names": [],
+    "ignoreList": [],
+    "sources": [
+        "../../src/js/main.js"
+    ],
+    "sourcesContent": [
+        "// 导入样式\r\nimport '../styles/main.css'\r\n\r\n// 导航菜单切换\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n  const mobileMenuBtn = document.querySelector('[data-mobile-menu-btn]');\r\n  const mobileMenu = document.querySelector('[data-mobile-menu]');\r\n  \r\n  if (mobileMenuBtn && mobileMenu) {\r\n    mobileMenuBtn.addEventListener('click', () => {\r\n      mobileMenu.classList.toggle('hidden');\r\n    });\r\n  }\r\n  \r\n  // 平滑滚动\r\n  document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\r\n    anchor.addEventListener('click', function (e) {\r\n      e.preventDefault();\r\n      const target = document.querySelector(this.getAttribute('href'));\r\n      if (target) {\r\n        target.scrollIntoView({ behavior: 'smooth' });\r\n      }\r\n    });\r\n  });\r\n});\r\n\r\n// 导入联系表单处理\r\nimport('./contact.js');\r\n"
+    ],
+    "file": "main-DNteNDYM.js"
+}
